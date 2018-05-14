@@ -1,6 +1,6 @@
 ### EventTrackerProject
 
-###What I did:
+####What I did:
 1. Create a Database with one table, in MySQL Workbench.
 2. Create a new Java project in Spring.
 3. Java project has Gradle nature, and entities package, META-INF folder to house a persistense xml and a test package.
@@ -17,5 +17,5 @@
 
 
 
-###What I learned:
+####What I learned:
 1. How to push a REST project with an internal server to AWS.

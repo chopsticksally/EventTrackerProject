@@ -1,15 +1,12 @@
 package com.skilldistillery.roadtrip.entities;
 
-import java.util.Date;
-import java.util.List;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Roadtripstop {
@@ -26,7 +23,7 @@ public class Roadtripstop {
 	@Column(name = "miles_Driven")
 	private double milesDriven;
 	
-	@Temporal(TemporalType.DATE)
+	
 	private Date time;
 	
 	@Column(name = "time_elapsed")

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RoadTrip REST</title>
+<script type="text/javascript" src="js/roadtripFunctions.js"></script>
+</head>
+<body>
+<h1>Track Your Road Trip Stops</h1>
+<form name="stopForm">
+    <input type="number" name="stopId">
+    <button name="lookup">Get Stop by Id</button>
+   <button name="getAllStops">Get All Stops</button>
+   <button name="getTotalMiles">Total Miles Driven</button>
+  </form>
+ 
+   
+ <div id="allStops"> </div>
+ 
+  <div id="output">
+    <div id="stopData"></div>
+  </div>
+  
+ <form name ='deleteStop'>
+  <button type ="submit" name="deleteStop" >Delete Stop</button>
+ </form>
+ 	
+<form name="createStop">
+    City:<input type="text" name="city">
+    <br>
+    State:<input type="text" name="state">
+    <br>
+    Miles driven:<input type="number" name="milesDriven">
+    <br>
+    Date and Time:<input type="datetime-local" name="time">
+    <br>
+    Time elapsed:<input type="text" name="timeElapsed">
+    <br>
+    <button name="create">Create Stop</button>
+    
+    </form>
+    <form name ='updateStop'>
+  <button type ="submit" name="update">Edit Stop</button>
+ </form>
+ 
+</body>
+</html>

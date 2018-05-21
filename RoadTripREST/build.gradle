@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
 group = 'com.skilldistillery'
 version = '0.0.1-SNAPSHOT'
@@ -30,4 +31,13 @@ compile project(':EventTrackerProject')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	providedRuntime ('org.springframework.boot:spring-boot-starter-tomcat')
 }
+
+war {
+enabled = true
+  archiveName = "roadtripstop.war"
+  destinationDir = file("./WAR")
+}
+
+

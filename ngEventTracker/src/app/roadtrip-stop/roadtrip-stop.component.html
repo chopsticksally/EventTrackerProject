@@ -1,0 +1,153 @@
+<body>
+<h1></h1>
+<h3>Roadtrip Stops:</h3>
+
+
+<div *ngIf = "selected" id="stop">
+
+
+     <p>Stop #: {{selected.id}}</p>
+     <p>City: {{selected.city}}</p>
+     <p>State: {{selected.state}}</p>
+     <p>Miles driven: {{selected.milesDriven}}</p>
+     <p>Date/ Time: {{selected.time}}</p>
+     <p>Time elapsed: {{selected.timeElapsed}}</p>
+
+    <button (click) = setEditStop()>Edit</button><br>
+    <button (click) = displayTable()>Return</button>
+
+</div>
+<br>
+
+<form>
+  <h1>Add a stop:</h1>
+  <input type="text" name="city" [(ngModel)]= "newStop.city" placeholder="city" /><br />
+  <input type="text" name="state" [(ngModel)]= "newStop.state" placeholder="state" /><br />
+  <input type="text" name="milesDriven" [(ngModel)]= "newStop.milesDriven" placeholder="miles driven" /><br />
+  <input type="text" name="time" [(ngModel)]= "newStop.time" placeholder="time" /><br />
+  <input type="text" name="timeElapsed" [(ngModel)]= "newStop.timeElapsed" placeholder="time elapsed" /><br />
+    <input type="submit"(click) = "create(newStop)">
+</form>
+  <br>
+  <table *ngIf = "!selected">
+
+      <tr>
+        <th>Stop #</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Miles Driven</th>
+        <th>Date/Time</th>
+        <th>Time elapsed</th>
+        <th>Delete stop</th>
+
+    </tr>
+
+      <tr *ngFor="let stop of stops">
+
+        <td (click) = "displayStop(stop)">{{stop.id}}</td>
+        <td (click) = "displayStop(stop)">{{stop.city}}</td>
+        <td (click) = "displayStop(stop)">{{stop.state}}</td>
+        <td (click) = "displayStop(stop)">{{stop.milesDriven}}</td>
+        <td (click) = "displayStop(stop)">{{stop.time}}</td>
+        <td (click) = "displayStop(stop)">{{stop.timeElapsed}}</td>
+
+
+      <button (click) = delete(stop.id)>X</button>
+    </tr>
+
+</table>
+
+
+  <form *ngIf = "editStop">
+      <h2>Edit City:</h2> <input type="text" name="city" [(ngModel)]= "editStop.city" placeholder="city" /><br />
+      <h2>Edit State:</h2> <input type="text" name="state" [(ngModel)]= "editStop.state" placeholder="state" /><br />
+      <h2>Edit Miles driven:</h2> <input type="text" name="milesDriven" [(ngModel)]= "editStop.milesDriven" placeholder="miles driven" /><br />
+      <h2>Edit Date/Time:</h2> <input type="text" name="time" [(ngModel)]= "editStop.time" placeholder="date/time" /><br />
+      <h2>Edit Time elapsed:</h2> <input type="text" name="timeElapsed" [(ngModel)]= "editStop.timeElapsed" placeholder="time elapsed" /><br />
+
+
+      <button (click) = update(editStop)> Save </button>
+      <button (click) = cancel()>Cancel</button>
+  </form>
+</body>
+  <style>
+      h3{
+        font-family: fantasy;
+        font-size: 60px;
+        text-align: center;
+
+    }
+
+      table, th , td {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 10px;
+        font-family: fantasy;
+
+      }
+      table tr:nth-child(odd) {
+        background-color: #f1f1f1;
+      }
+      table tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      table {
+        table-layout: fixed;
+        width: 60%;
+        margin-left:auto;
+        margin-right:auto;
+        border-width:15px;
+        border-style:ridge;
+
+
+      }
+      form{
+        font-family: fantasy;
+        text-align: center;
+        background-color:#f1f1f1;
+        width: 30%;
+        margin-left:auto;
+        margin-right:auto;
+        background-image: url("assets/pexels-photo-951240 (1).jpeg");
+        border-width:15px;
+        border-style:ridge;
+
+      }
+
+
+      #stop{
+        font-family: fantasy;
+        font-size: 20px;
+        font-weight: bolder;
+        background-color:#ffffff;
+        table-layout: fixed;
+        width: 25%;
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+        background-image: url("assets/pexels-photo-951240 (1).jpeg");
+        border-width:15px;
+        border-style:ridge;
+
+
+
+      }
+      body{
+
+        background-image: url("assets/pexels-photo-533671 (2).jpeg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+      }
+      button{
+        background-color: lightblue;
+        text-align: center;
+      }
+      input{
+      height: 25px !important;
+      width: 400px;
+      text-align: center;
+
+      }
+
+      </style>
